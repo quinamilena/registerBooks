@@ -1,0 +1,75 @@
+<!-- Formulário -->
+<div class="col-12" data-ng-show="showMe">
+    <div class="row">
+        <div class="col-12">
+            <h3 data-ng-show="!livro._id">Novo Cadastro de Livro</h3>
+            <h3 data-ng-show="livro._id">Alteração do Cadastro do Livro: {{livro.livroNome}} </h3>
+        </div>
+        <div class="col-6">
+            <label for="">Nome do Livro</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.livroNome">
+        </div>
+        <div class="col-6">
+            <label for="">Nome da Autor(a)</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.autorNome">
+        </div>
+        <div class="col-4">
+            <label for="">Nome da Editora</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.editoraNome">
+        </div>
+        <div class="col-3">
+            <label for="">ISBN-10</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.ISBN10">
+        </div>
+        <div class="col-3">
+            <label for="">ISBN-13</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.ISBN13">
+        </div>
+        <div class="col-2">
+            <label for="">Ano de Lançamento</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.lancamentoAno">
+        </div>
+        <div class="col-6">
+            <label for="">Idioma</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.idioma">
+        </div>
+        <div class="col-2">
+            <label for="">Preço</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.preco">
+        </div>
+        <div class="col-2">
+            <label for="">Número de Páginas</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.paginas">
+        </div>
+        <div class="col-2">
+            <label for="">Pré-Venda</label>
+            <select class="form-control form-control-sm" data-ng-model="livro.preVenda"
+                data-ng-options="opt.key as opt.label for opt in [{key: true, label: 'Sim'}, {key: false, label: 'Não'}]">
+            </select>
+        </div>
+        <div class="col-6">
+            <label for="">Gênero</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.genero">
+        </div>
+        <div class="col-6">
+            <label for="">Imagem</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.livroImg"
+                placeholder="Digitar o caminho da imagem. ex:www.exemplo.com.br/exemplo/imagem.jpg ">
+        </div>
+        <div class="col-3">
+            <label for="">Quantidade no Estoque</label>
+            <input type="text" class="form-control form-control-sm" data-ng-model="livro.qtdEstoque">
+        </div>
+        <div class="col-3">
+            <label for="">Disponível para a Venda</label>
+            <select class="form-control form-control-sm" data-ng-model="livro.disponivel"
+                data-ng-options="opt.key as opt.label for opt in [{key: true, label: 'Sim'}, {key: false, label: 'Não'}]">
+            </select>
+        </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-success btn-sm" data-ng-click="salvar()">Salvar</button>
+    <button type="button" data-ng-show="livro._id" class="btn btn-warning btn-sm" data-ng-click="limpa()">Cancelar alteração</button>
+    <button type="button" data-ng-show="livro._id" class="btn btn-danger btn-sm" data-ng-click="remover()">Remover</button>
+    <hr>
+</div>

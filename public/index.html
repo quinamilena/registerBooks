@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="#">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- Angular js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <!-- Bootstrap JS & Popper -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Script -->
+    <script src="main.js"></script>
+    <title>Livravria Node</title>
+</head>
+
+<body style="padding: 30px; font-family: 'Roboto Mono', monospace; font-size: 15px;">
+    <!-- Inicia a aplicação do Ajs -->
+    <div class="container-fluid" data-ng-app="myApp">
+        <!-- Inicia o controller do Ajs -->
+        <div class="row" data-ng-controller="myController">
+
+            <!-- Modal Info -->
+            <div class="modal fade bd-example-modal-lg" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="TituloModalInfo" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="TituloModalInfo">{{livro.livroNome}} </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto" class="form-control form-control-sm">
+                                        <figure class="figure">
+                                            <img data-ng-src="{{livro.livroImg}}" class="figure-img img-fluid rounded" alt="{{livro.livroNome}}.">
+                                            <figcaption class="figure-caption">Capa do Livro {{livro.livroNome}}.</figcaption>
+                                        </figure>
+                                        <img src="" alt="" width="100" height="150">
+                                    </div>
+                                    <div class="col-md-8" class="form-control form-control-sm">
+                                        <p>Nome:                    {{livro.livroNome}}</p>
+                                        <p>Autor(a):                {{livro.autorNome}}</p>
+                                        <p>ISBN-13:                 {{livro.ISBN13}}</p>
+                                        <p>ISBN-10:                 {{livro.ISBN10}}</p>
+                                        <p>Editora:                 {{livro.editoraNome}}</p>
+                                        <p>Ano de Lançamento:       {{livro.lancamentoAno}}</p>
+                                        <p>Idioma:                  {{livro.idioma}}</p>
+                                        <p>Número de Páginas:       {{livro.paginas}}</p>
+                                        <p>Gênero:                  {{livro.genero}}</p>
+                                        <p>Preço:                   {{livro.preco}}</p>
+                                        <p>Quantidade no Estoque:   {{livro.qtdEstoque}}</p>
+                                        <p>Pré-Venda:               {{livro.preVenda == true ? 'Sim' : 'Não'}}</p>
+                                        <p>Disponivel para a Venda: {{livro.disponivel == true ? 'Sim' : 'Não'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicionar -->
+            <div class="col-12">
+                <div class="row">
+                    <dvi class="col-2">
+                        <button type="button" class="btn btn-dark btn-sm" data-ng-click="meMostra()">Novo Livro</button>
+                    </dvi>
+                    <div class="col-10">
+                        <input type="text" class="form-control form-control-sm" data-ng-model="buscaTabela" placeholder="Buscar">
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <hr> 
+            <!-- Formulário -->
+            <formulario></formulario>
+            <!-- Tela do cadastro de livros -->
+            <div class="col-12">
+                <h1 data-ng-class="text-center">Catálogo</h1>
+                <div class="row">
+                    <!-- Consulta -->
+                    <div class="col-12" data-ng-init="chamarTodos()">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="col">Nome do Livro</th>
+                                    <th scope="col">Autor(a)</th>
+                                    <th scope="col">Editora</th>
+                                    <th scope="col">ISBN-13</th>
+                                    <th scope="col">Ano de Lançamento</th>
+                                    <th scope="col">Idioma</th>
+                                    <th scope="col">Nº Páginas</th>
+                                    <th scope="col">Gênero</th>
+                                    <th scope="col">Preço</th>
+                                    <th scope="col">Pré Venda</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="livros in todosLivro | orderBy: 'livroNome' | filter: buscaTabela">
+                                    <td>
+                                        <button type="button" class="btn btn-link btn-sm" href="#" onclick="return false"
+                                                data-ng-click="chamarUmLivro(livros._id)" style="margin-bottom: 10px;">
+                                            Editar
+                                        </button>
+                                        <br>
+                                        <!-- Botão para acionar modal -->
+                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                                                data-target="#modalInfo" data-ng-click="info(livros._id)">
+                                            +Info
+                                        </button>
+                                    </td>
+                                    <td>{{livros.livroNome}}</td>
+                                    <td>{{livros.autorNome}}</td>
+                                    <td>{{livros.editoraNome}}</td>
+                                    <td>{{livros.ISBN13}}</td>
+                                    <td>{{livros.lancamentoAno}}</td>
+                                    <td>{{livros.idioma}}</td>
+                                    <td>{{livros.paginas}}</td>
+                                    <td>{{livros.genero}}</td>
+                                    <td>{{livros.preco}}</td>
+                                    <td>{{livros.preVenda == true ? 'Sim' : 'Não'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
