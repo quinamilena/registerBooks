@@ -14,33 +14,33 @@
 
   - Caminhar até a pasta com o CD:
   
-      cd desktop
+        cd desktop
     
   - Criar uma pasta:
   
-      mkdir Nome_Pasta;
+        mkdir Nome_Pasta;
       
   - Criar um Projeto:
   
-      express --no-view Nome_Projeto;
+        express --no-view Nome_Projeto;
       
   - Abrir no VsCode:
   
     Abrir a pasta do projeto com cd;
   
-      code .
+        code .
       
   - Instalar o nodemon
   
-      npm i -g nodemon express-generator;
+        npm i -g nodemon express-generator;
       
-      npm i --save mongoose;
+        npm i --save mongoose;
       
-      npm i --save cookie-parser debug express morgan
+        npm i --save cookie-parser debug express morgan
+       
+        npm i
       
-      npm i
-      
-      npm start
+        npm start
       
       
   
