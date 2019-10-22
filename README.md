@@ -1,7 +1,14 @@
-# Projeto-Nodejs;
-
-
----  Para a instalação do Nodejs, no computador ---
+# Cadastro de Livros;
+  - Com foco na aprendizade;
+  - Projeto Feito com NodeJs;
+  - Criação de um CRUD de uma API;
+  - Feito no CRUD;
+      - Create (Criação);
+      - Retrieve (Consulta);
+      - Update (Atualização);
+      - Delete (Deletar);
+ 
+# Para a instalação do Nodejs, no computador;
 
 - Iniciar  um projeto Nodejs
 
