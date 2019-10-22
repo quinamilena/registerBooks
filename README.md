@@ -1,28 +1,29 @@
 # Projeto-Nodejs;
 
+
 ---  Para a instalação do Nodejs, no computador ---
 
--> Iniciar  um projeto Nodejs
+- Iniciar  um projeto Nodejs
 
-  -> Caminhar até a pasta com o CD:
+  - Caminhar até a pasta com o CD:
   
       cd desktop
     
-  -> Criar uma pasta:
+  - Criar uma pasta:
   
       mkdir Nome_Pasta;
       
-  -> Criar um Projeto:
+  - Criar um Projeto:
   
       express --no-view Nome_Projeto;
       
-  -> Abrir no VsCode:
+  - Abrir no VsCode:
   
     Abrir a pasta do projeto com cd;
   
       code .
       
-  -> Instalar o nodemon
+  - Instalar o nodemon
   
       npm i -g nodemon express-generator;
       
