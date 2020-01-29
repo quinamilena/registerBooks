@@ -23,7 +23,11 @@
   - Criar um Projeto:
   
         express --no-view Nome_Projeto;
-      
+ 
+  - Causo o express não funcionar:
+    
+        npm init -y
+  
   - Abrir no VsCode:
   
     Abrir a pasta do projeto com cd;
