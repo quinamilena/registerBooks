@@ -47,4 +47,6 @@
         npm start
       
       
+  - Criar um dataBase no Robô 3t, como o mesmo nome que está na rota de connect(), no arquivo app.js
+      
   
