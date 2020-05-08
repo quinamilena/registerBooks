@@ -11,4 +11,4 @@
   - Após a instalação executar `npm start`;
   - Abrir em seu navegador [localhost:3000](http://localhost:3000/)
 
-É necessário ter instalado o npm e o Mongoose
+É necessário ter instalado o npm e o mongodb
