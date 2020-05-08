@@ -1,5 +1,5 @@
 # Cadastro de Livros
-  - Projeto Feito com NodeJs;
+  - Projeto feito em NodeJs;
   - Criação de um CRUD de uma API;
       - Create (Criação);
       - Retrieve (Consulta);
