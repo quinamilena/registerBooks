@@ -6,7 +6,7 @@
       - Update (Atualização);
       - Delete (Deletar);
 
-# Para a clonar o repositório
+# Para clonar o repositório
   - Ao clonar o repositório, executar `npm install`;
   - Após a instalação executar `npm start`;
   - Abrir em seu navegador [localhost:3000](http://localhost:3000/)
